@@ -16,6 +16,13 @@ namespace Humanity
 
         private static void Main(string[] args)
         {
+            if (args.Length != 1)
+            {
+                Console.WriteLine("Drag and drop archive to exe.");
+                Console.ReadLine();
+                return;
+            }
+
             FileStream fs = File.OpenRead(args[0]);
             BinaryReader br = new BinaryReader(fs);
 
@@ -63,6 +70,9 @@ namespace Humanity
                 File.WriteAllBytes(Path.Combine(folder, entry.Name), data);
                 data = null;
             }
+
+            Console.WriteLine("Finished.");
+            Console.ReadLine();
         }
 
         private static byte[] DecompressBytes(byte[] input)
