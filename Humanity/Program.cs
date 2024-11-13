@@ -65,7 +65,7 @@ namespace Humanity
             }
         }
 
-        public static byte[] DecompressBytes(byte[] input)
+        private static byte[] DecompressBytes(byte[] input)
         {
             using (MemoryStream inputStream = new MemoryStream(input))
             {
