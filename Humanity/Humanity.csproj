@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{737769BC-A896-40C0-94F9-E496309AB0D7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp22</RootNamespace>
-    <AssemblyName>ConsoleApp22</AssemblyName>
+    <RootNamespace>Humanity</RootNamespace>
+    <AssemblyName>Humanity</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
