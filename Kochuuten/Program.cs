@@ -58,6 +58,10 @@ namespace Kochuuten
                     switch (e.Type)
                     {
                         case 0:
+                            for (int i = 0; i < buf.Length; i++)
+                            {
+                                buf[i] = bytes[buf[i]];
+                            }
                             File.WriteAllBytes(e.Path, buf);
                             buf = null;
                             break;
@@ -66,6 +70,7 @@ namespace Kochuuten
                             {
                                 buf[i] = bytes[buf[i]];
                             }
+                            string ext = Path.GetExtension(e.Path);
                             using (MemoryStream ms = new MemoryStream(buf))
                             {
                                 using (Decoder decoder = new Decoder(ms, e.UnpackedSize))
@@ -76,16 +81,15 @@ namespace Kochuuten
                                         output.Read(outputBuf, 0, (int)e.UnpackedSize);
                                         File.WriteAllBytes(e.Path, outputBuf);
                                         outputBuf = null;
-                                        buf = null;
                                     }
                                 }
                             }
-
                             break;
                         default:
                             Console.WriteLine("Unknown type: " + e.Type);
                             return;
                     }
+                    Console.WriteLine(e.Type);
                 }
 
             }
