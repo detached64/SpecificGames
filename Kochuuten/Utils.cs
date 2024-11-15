@@ -1,4 +1,6 @@
-﻿using System;
+﻿// This part is from GARbro.
+// MIT License
+using System;
 using System.Collections.Generic;
 
 namespace Kochuuten
