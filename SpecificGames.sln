@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kochuuten", "Kochuuten\Koch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renaissance", "Renaissance\Renaissance.csproj", "{18098E85-B150-4A4D-BE78-934676FA59E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoukanJouken", "KoukanJouken\KoukanJouken.csproj", "{AF4C29A6-37C7-441F-819E-C1CF6145A56D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{18098E85-B150-4A4D-BE78-934676FA59E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18098E85-B150-4A4D-BE78-934676FA59E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18098E85-B150-4A4D-BE78-934676FA59E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF4C29A6-37C7-441F-819E-C1CF6145A56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF4C29A6-37C7-441F-819E-C1CF6145A56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4C29A6-37C7-441F-819E-C1CF6145A56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF4C29A6-37C7-441F-819E-C1CF6145A56D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
