@@ -11,3 +11,5 @@ This repo contains tools for specific games.
 [Renaissance](https://vndb.org/v611)
 
 [Koukan Jouken](https://vndb.org/v13723)
+
+[Youjo Ranbu 2](https://vndb.org/v5543)
