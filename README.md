@@ -13,3 +13,8 @@ This repo contains tools for specific games.
 [Koukan Jouken](https://vndb.org/v13723)
 
 [Youjo Ranbu~ Yogosareta Seiiki~](https://vndb.org/v5523) & [Youjo Ranbu 2](https://vndb.org/v5543)
+
+## Build
+
+1. Install [.NET SDK](https://dotnet.microsoft.com/download).
+2. Run `dotnet build -c Release`.
