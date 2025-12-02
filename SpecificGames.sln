@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renaissance", "Renaissance\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoukanJouken", "KoukanJouken\KoukanJouken.csproj", "{AF4C29A6-37C7-441F-819E-C1CF6145A56D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoujoRanbu2", "YoujoRanbu2\YoujoRanbu2.csproj", "{F619353A-ED00-4D86-8BFD-A7CA10A356EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoujoRanbu", "YoujoRanbu\YoujoRanbu.csproj", "{F619353A-ED00-4D86-8BFD-A7CA10A356EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

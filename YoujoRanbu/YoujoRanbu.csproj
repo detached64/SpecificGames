@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F619353A-ED00-4D86-8BFD-A7CA10A356EC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>YoujoRanbu2</RootNamespace>
-    <AssemblyName>YoujoRanbu2</AssemblyName>
+    <RootNamespace>YoujoRanbu</RootNamespace>
+    <AssemblyName>YoujoRanbu</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

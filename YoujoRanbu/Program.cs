@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace YoujoRanbu2
+namespace YoujoRanbu
 {
     internal static class Program
     {
@@ -24,32 +24,52 @@ namespace YoujoRanbu2
         {
             FileStream fs = File.OpenRead(file);
             BinaryReader br = new BinaryReader(fs);
+            int version = 2;
             if (Encoding.ASCII.GetString(br.ReadBytes(16)).TrimEnd('\0') != "MDFILE Ver2.0")
-                return;
+            {
+                fs.Position = 0;
+                version = 1;
+            }
             int fileCount = br.ReadInt32();
             string path = Path.Combine(Path.GetDirectoryName(file), Path.GetFileNameWithoutExtension(file));
             Directory.CreateDirectory(path);
             for (int i = 0; i < fileCount; i++)
             {
-                uint nameOffset = br.ReadUInt32();
-                uint dataOffset = br.ReadUInt32();
-                uint nameLength = dataOffset - nameOffset;
-                uint size = br.ReadUInt32();
-                long pos = fs.Position;
-                fs.Position = nameOffset;
-                string name = Encoding.ASCII.GetString(br.ReadBytes((int)nameLength)).TrimEnd('\0');
-                fs.Position = dataOffset;
-                byte[] data = br.ReadBytes((int)size);
-                data = Decode(data);
-                File.WriteAllBytes(Path.Combine(path, name), data);
-                fs.Position = pos;
+                if (version == 2)
+                {
+                    uint nameOffset = br.ReadUInt32();
+                    uint dataOffset = br.ReadUInt32();
+                    uint nameLength = dataOffset - nameOffset;
+                    uint size = br.ReadUInt32();
+                    long pos = fs.Position;
+                    fs.Position = nameOffset;
+                    string name = Encoding.ASCII.GetString(br.ReadBytes((int)nameLength)).TrimEnd('\0');
+                    fs.Position = dataOffset;
+                    byte[] data = br.ReadBytes((int)size);
+                    data = Decode(data);
+                    File.WriteAllBytes(Path.Combine(path, name), data);
+                    fs.Position = pos;
+                }
+                else
+                {
+                    uint dataOffset = br.ReadUInt32();
+                    uint size = br.ReadUInt32();
+                    string name = Encoding.ASCII.GetString(br.ReadBytes(16)).TrimEnd('\0');
+                    long pos = fs.Position;
+                    fs.Position = dataOffset;
+                    byte[] data = br.ReadBytes((int)size);
+                    data = Decode(data);
+                    File.WriteAllBytes(Path.Combine(path, name), data);
+                    fs.Position = pos;
+                }
             }
         }
 
         private static byte[] Decode(byte[] data)
         {
             int size = data.Length;
-            if (BitConverter.ToUInt32(data, 0) == 0x706d6f63)
+            int magic = BitConverter.ToInt32(data, 0);
+            if (magic == 0x706d6f63 || magic == 0x52414452)
             {
                 int unpacked_size = BitConverter.ToInt32(data, 16);
                 byte[] dec = new byte[size - 20];
