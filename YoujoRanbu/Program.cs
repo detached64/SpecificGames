@@ -8,15 +8,20 @@ namespace YoujoRanbu
     {
         private static void Main(string[] args)
         {
-            string file = args[0];
-            switch (Path.GetExtension(file))
+            foreach (string file in args)
             {
-                case ".MD":
-                    ProcessMD(file);
-                    break;
-                case ".BMP":
-                    File.WriteAllBytes(Path.GetFileNameWithoutExtension(file) + ".dec.bmp", Decode(File.ReadAllBytes(file)));
-                    break;
+                switch (Path.GetExtension(file))
+                {
+                    case ".MD":
+                        ProcessMD(file);
+                        break;
+                    case ".BMP":
+                        File.WriteAllBytes(Path.GetFileNameWithoutExtension(file) + ".dec.bmp", Decode(File.ReadAllBytes(file)));
+                        break;
+                    case ".WAV":
+                        File.WriteAllBytes(Path.GetFileNameWithoutExtension(file) + ".dec.wav", Decode(File.ReadAllBytes(file)));
+                        break;
+                }
             }
         }
 
@@ -73,7 +78,7 @@ namespace YoujoRanbu
             {
                 int unpacked_size = BitConverter.ToInt32(data, 16);
                 byte[] dec = new byte[size - 20];
-                Buffer.BlockCopy(data, 20, dec, 0, (int)(size - 20));
+                Buffer.BlockCopy(data, 20, dec, 0, size - 20);
                 data = Decompress(dec, unpacked_size);
             }
             return data;
