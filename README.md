@@ -16,5 +16,5 @@ This repo contains tools for specific games.
 
 ## Build
 
-1. Install [.NET SDK](https://dotnet.microsoft.com/download).
-2. Run `dotnet build -c Release`.
+1. Install [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48).
+2. Run `msbuild SpecificGames.sln /p:Configuration=Release`.
